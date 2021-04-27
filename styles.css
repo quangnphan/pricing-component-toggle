@@ -1,0 +1,206 @@
+:root{
+    --LinearGradient: hsl(236, 72%, 79%) to hsl(237, 63%, 64%);
+--VeryLightGrayishBlue: hsl(240, 78%, 98%);
+--LightGrayishBlue: hsl(234, 14%, 74%);
+--GrayishBlue: hsl(233, 13%, 49%);
+--DarkGrayishBlue: hsl(232, 13%, 33%);
+}
+body {
+	background-color: var(--VeryLightGrayishBlue);
+	color: var(--DarkGrayishBlue);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: 'Montserrat', sans-serif;
+	text-align: center;
+	min-height: 100vh;
+}
+body::before {
+	content: '';
+	background-image: url('./images/bg-top.svg');
+	background-repeat: no-repeat;
+	background-position: top right;
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+}
+
+body::after {
+	content: '';
+	background-image: url('./images/bg-bottom.svg');
+	background-repeat: no-repeat;
+	background-position: bottom left;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+}
+/*toggle switch*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  hr{
+    opacity: 0.5;
+  }
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1300px;
+}
+.switcher{
+    display: flex;
+    margin: 20px auto 80px;
+}
+.switcher .toggle{
+    margin: 0 20px;
+}
+.switcher div{
+    align-self: center;
+}
+.option{
+    display: flex;
+}
+.box{
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: var(--GrayishBlue);
+}
+.professional{
+  transform: scale(1.1);
+  background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64% ));
+  color: var(--VeryLightGrayishBlue);
+}
+.box .price{
+  margin: 30px;
+  font-size: 2.5rem;
+  color: var(--DarkGrayishBlue);
+}
+.professional .price{
+  color: var(--VeryLightGrayishBlue);
+}
+.box .price span{
+  font-size: 3.5rem;
+  margin-left: 10px;
+}
+.box button{
+  background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64% ));
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  letter-spacing: 2px;
+  width: 100%;
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--VeryLightGrayishBlue);
+  cursor: pointer;
+}
+.box .pro-btn{
+  background: var(--VeryLightGrayishBlue);
+  color: var(--DarkGrayishBlue);
+}
+.box .btn:hover{
+  background: none;
+  color: hsl(237, 63%, 64%);
+  border: 1px solid hsl(237, 63%, 64%);
+}
+.pro-btn:hover{
+  background: none;
+  border: 1px solid var(--VeryLightGrayishBlue);
+  color: var(--VeryLightGrayishBlue);
+}
+
+/*monthly price*/
+.price .monthly{
+  display: none;
+}
+.show-monthly .price .monthly{
+  display: block;
+}
+.show-monthly .price .annually{
+  display: none;
+}
+
+@media(max-width: 600px){
+  body::before{
+    background-position: top right; 
+  }
+  body::after{
+    background: none;
+  }
+  .option{
+    flex-direction: column;
+  }
+  .professional{
+    transform: scale(1);
+  }
+  .box{
+    margin: 20px auto;
+  }
+}
